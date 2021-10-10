@@ -1,0 +1,6 @@
+name: FeatherPartner
+main: net.digitalingot.featherpartner.platforms.bungee.FeatherBungee
+version: '1.0'
+author: DigitalIngot
+softdepends:
+  - LuckPerms

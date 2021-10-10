@@ -1,0 +1,8 @@
+{
+  "id": "featherplugin",
+  "name": "FeatherPlugin",
+  "version": "1.0",
+  "authors": ["DigitalIngot"],
+  "dependencies": [],
+  "main": "net.digitalingot.featherplugin.platforms.velocity.FeatherVelocity"
+}

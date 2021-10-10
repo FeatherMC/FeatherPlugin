@@ -1,0 +1,4 @@
+main: net.digitalingot.featherplugin.platforms.bukkit.FeatherBukkit
+name: FeatherPlugin
+version: '1.0'
+author: DigitalIngot

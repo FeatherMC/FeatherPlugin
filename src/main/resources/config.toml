@@ -1,0 +1,5 @@
+# This config is written in TOML. More info regarding the syntax can be found here: https://github.com/toml-lang/toml
+
+# An array of mods slugs which are disabled.
+# The slugs for the mods are available here: todo
+disabledMods = []

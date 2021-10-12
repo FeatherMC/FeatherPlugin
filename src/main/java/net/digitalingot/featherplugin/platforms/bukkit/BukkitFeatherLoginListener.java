@@ -1,6 +1,7 @@
 package net.digitalingot.featherplugin.platforms.bukkit;
 
 import net.digitalingot.featherplugin.FeatherConfig;
+import net.digitalingot.featherserverapi.abstractions.FeatherUser;
 import net.digitalingot.featherserverapi.platforms.bukkit.BukkitFeatherLoginEvent;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -17,7 +18,9 @@ class BukkitFeatherLoginListener implements Listener {
 
     @EventHandler
     public void onFeatherLogin(@NotNull BukkitFeatherLoginEvent event) {
-        event.getUser().disableMods(config.getDisabledMods());
+        FeatherUser user = event.getUser();
+        user.disableMods(config.getDisabledMods());
+        user.setWaypoints(config.getWaypoints());
     }
 
 }

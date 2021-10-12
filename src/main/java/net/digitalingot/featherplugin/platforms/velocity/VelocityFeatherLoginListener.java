@@ -2,6 +2,7 @@ package net.digitalingot.featherplugin.platforms.velocity;
 
 import com.velocitypowered.api.event.Subscribe;
 import net.digitalingot.featherplugin.FeatherConfig;
+import net.digitalingot.featherserverapi.abstractions.FeatherUser;
 import net.digitalingot.featherserverapi.platforms.velocity.VelocityFeatherLoginEvent;
 import org.jetbrains.annotations.NotNull;
 
@@ -16,7 +17,9 @@ class VelocityFeatherLoginListener {
 
     @Subscribe
     public void onFeatherLogin(@NotNull VelocityFeatherLoginEvent event) {
-        event.getUser().disableMods(config.getDisabledMods());
+        FeatherUser user = event.getUser();
+        user.disableMods(config.getDisabledMods());
+        user.setWaypoints(config.getWaypoints());
     }
 
 }

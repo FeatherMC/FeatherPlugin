@@ -1,6 +1,7 @@
 package net.digitalingot.featherplugin.platforms.bungee;
 
 import net.digitalingot.featherplugin.FeatherConfig;
+import net.digitalingot.featherserverapi.abstractions.FeatherUser;
 import net.digitalingot.featherserverapi.platforms.bungee.BungeeFeatherLoginEvent;
 import net.md_5.bungee.api.plugin.Listener;
 import net.md_5.bungee.event.EventHandler;
@@ -17,7 +18,9 @@ class BungeeFeatherLoginListener implements Listener {
 
     @EventHandler
     public void onFeatherLogin(@NotNull BungeeFeatherLoginEvent event) {
-        event.getUser().disableMods(config.getDisabledMods());
+        FeatherUser user = event.getUser();
+        user.disableMods(config.getDisabledMods());
+        user.setWaypoints(config.getWaypoints());
     }
 
 }

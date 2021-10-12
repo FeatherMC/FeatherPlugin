@@ -10,6 +10,9 @@ version '1.0-SNAPSHOT'
 repositories {
     mavenCentral()
     maven {
+        url 'https://artifactory.feathermc.net/artifactory/feather-public'
+    }
+    maven {
         url 'https://jitpack.io'
     }
     maven {
@@ -21,12 +24,12 @@ repositories {
     maven {
         url 'https://repo.velocitypowered.com/snapshots/'
     }
-    mavenLocal() // todo remove
 }
 
 dependencies {
     // Feather API
     shadow group: 'net.digitalingot', name: 'feather-server-api', version: '1.0-SNAPSHOT'
+    shadow group: 'net.digitalingot', name: 'feather-server-api-proto', version: '1.0-SNAPSHOT'
 
     // Config
     shadow group: 'com.moandjiezana.toml', name: 'toml4j', version: '0.7.2'

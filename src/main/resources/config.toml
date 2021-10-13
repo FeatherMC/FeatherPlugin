@@ -3,3 +3,13 @@
 # An array of mods slugs which are disabled.
 # The slugs for the mods are available here: todo
 disabledMods = []
+
+# An array of waypoints
+[waypoints]
+# name = "Spawn"
+# chroma = false
+# color = 0
+# world = "world"
+# x = 1
+# y = 1
+# z = 1

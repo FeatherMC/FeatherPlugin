@@ -12,6 +12,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class FeatherConfig {
@@ -30,17 +31,17 @@ public class FeatherConfig {
         List<String> disabledMods = toml.getList("disabledMods");
 
         // parse waypoints array
-        List<Toml> waypointsToml = toml.getList("waypoints");
+        List<Map<String, Object>> waypointsToml = toml.getList("waypoints");
 
         List<Waypoint> waypoints = new ArrayList<>();
-        for (Toml waypointToml : waypointsToml) {
-            String name = waypointToml.getString("name");
-            boolean chroma = waypointToml.getBoolean("chroma");
-            int color = (int) (long) waypointToml.getLong("color");
-            String world = waypointToml.getString("world");
-            int x = (int) (long) waypointToml.getLong("x");
-            int y = (int) (long) waypointToml.getLong("y");
-            int z = (int) (long) waypointToml.getLong("z");
+        for (Map<String, Object> waypointToml : waypointsToml) {
+            String name = (String) waypointToml.get("name");
+            boolean chroma = (boolean) waypointToml.get("chroma");
+            int color = (int) (long) waypointToml.get("color");
+            String world = (String) waypointToml.get("world");
+            int x = (int) (long) waypointToml.get("x");
+            int y = (int) (long) waypointToml.get("y");
+            int z = (int) (long) waypointToml.get("z");
 
             waypoints.add(new Waypoint(name, new ChromaColor(chroma, color), world, new Waypoint.Location(x, y, z)));
 

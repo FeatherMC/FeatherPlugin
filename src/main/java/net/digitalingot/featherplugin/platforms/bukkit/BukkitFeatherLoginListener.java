@@ -21,6 +21,9 @@ class BukkitFeatherLoginListener implements Listener {
         FeatherUser user = event.getUser();
         user.disableMods(config.getDisabledMods());
         user.setWaypoints(config.getWaypoints());
+        if (config.isDisableHitDelay()) {
+            user.disableHitDelay();
+        }
     }
 
 }

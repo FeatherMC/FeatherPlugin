@@ -33,6 +33,8 @@ public class FeatherConfig {
         // parse waypoints array
         List<Map<String, Object>> waypointsToml = toml.getList("waypoints");
 
+        boolean disableHitDelay = toml.getBoolean("disableHitDelay");
+
         List<Waypoint> waypoints = new ArrayList<>();
         for (Map<String, Object> waypointToml : waypointsToml) {
             String name = (String) waypointToml.get("name");
@@ -47,7 +49,7 @@ public class FeatherConfig {
 
         }
 
-        return new FeatherConfig(disabledMods, waypoints);
+        return new FeatherConfig(disabledMods, waypoints, disableHitDelay);
     }
 
     private static void createIfNotExists(@NotNull Path path) throws Exception {
@@ -67,10 +69,12 @@ public class FeatherConfig {
     private final List<String> disabledMods;
     @NotNull
     private final List<Waypoint> waypoints;
+    private final boolean disableHitDelay;
 
-    private FeatherConfig(@NotNull List<String> disabledMods, @NotNull List<Waypoint> waypoints) {
+    private FeatherConfig(@NotNull List<String> disabledMods, @NotNull List<Waypoint> waypoints, boolean disableHitDelay) {
         this.disabledMods = disabledMods;
         this.waypoints = waypoints;
+        this.disableHitDelay = disableHitDelay;
     }
 
     @NotNull
@@ -81,5 +85,9 @@ public class FeatherConfig {
     @NotNull
     public List<Waypoint> getWaypoints() {
         return waypoints;
+    }
+
+    public boolean isDisableHitDelay() {
+        return disableHitDelay;
     }
 }

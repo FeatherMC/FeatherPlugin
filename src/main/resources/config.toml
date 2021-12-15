@@ -13,3 +13,6 @@ disabledMods = []
 # x = 1
 # y = 1
 # z = 1
+
+# Disable Hit Delay (1.8 only)
+disableHitDelay = false
